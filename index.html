@@ -119,7 +119,7 @@
       gap: 0.5rem;
       margin: 0 auto 2.2rem;
       padding: 0.6rem 1rem;
-      max-width: 760px;
+      max-width: 820px;
     }
 
     .sub-filter-bar.hidden {
@@ -235,8 +235,13 @@
       color: #B86446;
     }
 
+    .badge.popular {
+      background-color: #FFF3D6;
+      color: #A66B00;
+    }
+
     .card-body {
-      padding: 1.2rem;
+      padding: 1.15rem 1.2rem 1.25rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -247,31 +252,63 @@
       font-family: 'Quicksand', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .card-desc {
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.1rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.95rem;
+    }
+
+    /* 卡片與預覽視窗底部：Print PDF 在上、Download 在下，兩顆同寬同高 */
+    .card-actions,
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      width: 100%;
+    }
+
+    .btn-print,
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      width: 100%;
+      height: 42px;
+      padding: 0 1rem;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-print {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      border: 1.5px solid var(--border-light);
+    }
+
+    .btn-print:hover {
+      background-color: var(--warm-sand);
+      border-color: var(--sage-green);
     }
 
     .btn-download {
-      display: block;
-      width: 100%;
-      text-align: center;
       background-color: var(--sage-green);
       color: #FFFFFF;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.65rem 1rem;
-      border-radius: 10px;
-      transition: background-color 0.2s ease;
+      border: 1.5px solid var(--sage-green);
     }
 
     .btn-download:hover {
       background-color: var(--sage-hover);
+      border-color: var(--sage-hover);
     }
 
     /* Coming Soon Placeholder Card */
@@ -302,7 +339,7 @@
     .modal-content {
       background: #FFFFFF;
       border-radius: 16px;
-      max-width: 540px;
+      max-width: 500px;
       width: 100%;
       padding: 1.5rem;
       text-align: center;
@@ -321,7 +358,7 @@
     }
 
     .modal-content img {
-      max-height: 62vh;
+      max-height: 58vh;
       width: auto;
       max-width: 100%;
       border: 1px solid var(--border-light);
@@ -366,6 +403,7 @@
   <div class="sub-filter-bar" id="coloringSubBar">
     <span class="sub-label">Themes:</span>
     <button class="sub-btn active" data-sub="all">All Themes</button>
+    <button class="sub-btn" data-sub="popular">⭐ Popular</button>
     <button class="sub-btn" data-sub="animals">Animals</button>
     <button class="sub-btn" data-sub="plants">Plants &amp; Nature</button>
     <button class="sub-btn" data-sub="christmas">Christmas</button>
@@ -375,11 +413,11 @@
   <main class="container">
     <div class="grid" id="gallery">
 
-     <!-- 卡片 1：塗色圖 -> Animals -->
-      <article class="card" data-category="coloring" data-sub="animals">
+      <!-- 卡片 1：塗色圖 -> Animals -->
+      <article class="card" data-category="coloring" data-sub="animals" data-popular="true">
         <div class="card-thumb" onclick="openPreview(this, 'Cute Lion Coloring Page', 'downloads/animal-lion.pdf')">
           <div class="badge-group">
-            <span class="badge">Coloring</span>
+            <span class="badge popular">⭐ Popular</span>
             <span class="badge sub">Animals</span>
           </div>
           <img src="images/animal-lion.png" alt="Cute Lion Printable Coloring Page">
@@ -387,14 +425,17 @@
         <div class="card-body">
           <div>
             <h2 class="card-title">Cute Lion Coloring Page</h2>
-            <p class="card-desc">A friendly Scandinavian-style lion illustration with clean, bold outlines—perfect for little hands to color and enjoy. (A4 PDF)</p>
+            <p class="card-desc">Scandinavian-style lion with bold outlines. (A4 PDF)</p>
           </div>
-          <a href="downloads/animal-lion.pdf" download class="btn-download">Download Free PDF</a>
+          <div class="card-actions">
+            <button type="button" class="btn-print" onclick="recordClick('animal-lion'); printPDF('downloads/animal-lion.pdf')">🖨️ Print PDF</button>
+            <a href="downloads/animal-lion.pdf" download class="btn-download" onclick="recordClick('animal-lion')">Download Free PDF</a>
+          </div>
         </div>
       </article>
 
       <!-- 範例卡片 2：塗色圖 -> Plants & Nature -->
-      <article class="card" data-category="coloring" data-sub="plants">
+      <article class="card" data-category="coloring" data-sub="plants" data-popular="false">
         <div class="card-thumb" onclick="openPreview(this, 'Happy Potted Monstera', 'downloads/potted-monstera.pdf')">
           <div class="badge-group">
             <span class="badge">Coloring</span>
@@ -405,14 +446,17 @@
         <div class="card-body">
           <div>
             <h2 class="card-title">Happy Potted Plant</h2>
-            <p class="card-desc">Simple Scandinavian botanical leaf illustration for relaxing coloring time. (A4 PDF)</p>
+            <p class="card-desc">Simple Scandinavian botanical leaf illustration. (A4 PDF)</p>
           </div>
-          <a href="downloads/potted-monstera.pdf" download class="btn-download">Download Free PDF</a>
+          <div class="card-actions">
+            <button type="button" class="btn-print" onclick="recordClick('potted-monstera'); printPDF('downloads/potted-monstera.pdf')">🖨️ Print PDF</button>
+            <a href="downloads/potted-monstera.pdf" download class="btn-download" onclick="recordClick('potted-monstera')">Download Free PDF</a>
+          </div>
         </div>
       </article>
 
       <!-- 範例卡片 3：塗色圖 -> Christmas -->
-      <article class="card" data-category="coloring" data-sub="christmas">
+      <article class="card" data-category="coloring" data-sub="christmas" data-popular="false">
         <div class="card-thumb" onclick="openPreview(this, 'Cozy Christmas Tree', 'downloads/christmas-tree.pdf')">
           <div class="badge-group">
             <span class="badge">Coloring</span>
@@ -423,9 +467,12 @@
         <div class="card-body">
           <div>
             <h2 class="card-title">Cozy Christmas Tree</h2>
-            <p class="card-desc">Festive holiday tree with bold outlines ready for crayons and markers. (A4 PDF)</p>
+            <p class="card-desc">Festive holiday tree with bold outlines. (A4 PDF)</p>
           </div>
-          <a href="downloads/christmas-tree.pdf" download class="btn-download">Download Free PDF</a>
+          <div class="card-actions">
+            <button type="button" class="btn-print" onclick="recordClick('christmas-tree'); printPDF('downloads/christmas-tree.pdf')">🖨️ Print PDF</button>
+            <a href="downloads/christmas-tree.pdf" download class="btn-download" onclick="recordClick('christmas-tree')">Download Free PDF</a>
+          </div>
         </div>
       </article>
 
@@ -434,7 +481,7 @@
         <div>
           <span class="badge" style="display:inline-block; margin-bottom:0.8rem;">Tracing &amp; Lines</span>
           <h3 class="card-title">Pre-Writing Line Tracing</h3>
-          <p class="card-desc">Curvy waves, zigzags, and cozy animal paths coming soon!</p>
+          <p class="card-desc">Curvy waves, zigzags, and cozy paths coming soon!</p>
         </div>
       </article>
 
@@ -443,7 +490,7 @@
         <div>
           <span class="badge" style="display:inline-block; margin-bottom:0.8rem;">Numbers &amp; Math</span>
           <h3 class="card-title">Count &amp; Color 1–10</h3>
-          <p class="card-desc">Playful woodland counting sheets and number tracing coming soon!</p>
+          <p class="card-desc">Playful woodland counting sheets coming soon!</p>
         </div>
       </article>
 
@@ -455,8 +502,11 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closePreview(event, true)">&times;</button>
       <img id="modalImg" src="" alt="Printable Preview">
-      <h3 id="modalTitle" class="card-title" style="margin-bottom:0.8rem;"></h3>
-      <a id="modalDownload" href="#" download class="btn-download">Download Printable PDF</a>
+      <h3 id="modalTitle" class="card-title" style="margin-bottom:0.9rem;"></h3>
+      <div class="modal-actions">
+        <button type="button" id="modalPrint" class="btn-print">🖨️ Print PDF</button>
+        <a id="modalDownload" href="#" download class="btn-download">Download Printable PDF</a>
+      </div>
     </div>
   </div>
 
@@ -474,7 +524,6 @@
     let currentSub = 'all';
 
     function filterGallery() {
-      // 控制第二層次分類列是否顯示（在 All 或 Coloring 狀態下顯示）
       if (currentMain === 'all' || currentMain === 'coloring') {
         subBar.classList.remove('hidden');
       } else {
@@ -484,9 +533,18 @@
       cards.forEach(card => {
         const cardCat = card.dataset.category;
         const cardSub = card.dataset.sub;
+        const isPopular = card.dataset.popular === 'true';
 
         const matchMain = (currentMain === 'all') || (cardCat === currentMain);
-        const matchSub = (currentSub === 'all') || (cardSub === currentSub);
+        let matchSub = false;
+
+        if (currentSub === 'all') {
+          matchSub = true;
+        } else if (currentSub === 'popular') {
+          matchSub = isPopular;
+        } else {
+          matchSub = (cardSub === currentSub);
+        }
 
         if (matchMain && matchSub) {
           card.style.display = 'flex';
@@ -496,14 +554,12 @@
       });
     }
 
-    // 第一層按鈕點擊事件
     mainBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         mainBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentMain = btn.dataset.filter;
 
-        // 切換主分類時，把次分類重置為 All Themes
         currentSub = 'all';
         subBtns.forEach(sb => sb.classList.remove('active'));
         subBtns[0].classList.add('active');
@@ -512,14 +568,12 @@
       });
     });
 
-    // 第二層按鈕點擊事件
     subBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         subBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentSub = btn.dataset.sub;
 
-        // 若點選特定主題（例如 Animals），自動把主分類對齊到 Coloring Pages
         if (currentSub !== 'all' && currentMain === 'all') {
           currentMain = 'coloring';
           mainBtns.forEach(mb => {
@@ -531,18 +585,52 @@
       });
     });
 
-    // 大圖預覽視窗功能
     function openPreview(thumbEl, title, pdfUrl) {
       const clickedImg = thumbEl.querySelector('img').src;
       document.getElementById('modalImg').src = clickedImg;
       document.getElementById('modalTitle').textContent = title;
       document.getElementById('modalDownload').href = pdfUrl;
+      document.getElementById('modalPrint').onclick = function() {
+        printPDF(pdfUrl);
+      };
       document.getElementById('previewModal').classList.add('open');
     }
 
     function closePreview(event, force = false) {
       if (force || event.target.id === 'previewModal') {
         document.getElementById('previewModal').classList.remove('open');
+      }
+    }
+
+    function printPDF(pdfUrl) {
+      let printFrame = document.getElementById('hidden-print-frame');
+      if (!printFrame) {
+        printFrame = document.createElement('iframe');
+        printFrame.id = 'hidden-print-frame';
+        printFrame.style.position = 'fixed';
+        printFrame.style.right = '0';
+        printFrame.style.bottom = '0';
+        printFrame.style.width = '0';
+        printFrame.style.height = '0';
+        printFrame.style.border = '0';
+        document.body.appendChild(printFrame);
+      }
+
+      printFrame.onload = function() {
+        try {
+          printFrame.contentWindow.focus();
+          printFrame.contentWindow.print();
+        } catch (e) {
+          window.open(pdfUrl, '_blank');
+        }
+      };
+
+      printFrame.src = pdfUrl;
+    }
+
+    function recordClick(itemId) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'printable_download', { item_id: itemId });
       }
     }
   </script>
