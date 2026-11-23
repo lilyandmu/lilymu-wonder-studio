@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lily &amp; Mu Wonder Studio | Free Printable Coloring Pages &amp; Kids Worksheets</title>
+  <meta name="description" content="Download free, Scandinavian-inspired printable coloring pages, tracing sheets, and early math activities for kids by Lily &amp; Mu Wonder Studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FAF8F5;
+      --card-white: #FFFFFF;
+      --text-dark: #2F3632;
+      --text-muted: #68736D;
+      --sage-green: #6B8E78;
+      --sage-hover: #567562;
+      --warm-sand: #EFEAE1;
+      --terracotta: #D98A6C;
+      --terracotta-soft: #F7EAE4;
+      --border-light: #E6E0D6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Header & Brand */
+    header {
+      background-color: var(--card-white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.5rem 5%;
+      text-align: center;
+    }
+
+    .brand-title {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--terracotta);
+    }
+
+    .brand-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-top: 0.35rem;
+    }
+
+    /* Hero Banner */
+    .hero {
+      max-width: 820px;
+      margin: 2.5rem auto 1.5rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Primary Category Filter Tabs */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin: 1.8rem auto 0.9rem;
+      padding: 0 1rem;
+    }
+
+    .filter-btn {
+      background-color: var(--card-white);
+      border: 1.5px solid var(--border-light);
+      color: var(--text-dark);
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--sage-green);
+      color: var(--sage-green);
+    }
+
+    .filter-btn.active {
+      background-color: var(--sage-green);
+      border-color: var(--sage-green);
+      color: #FFFFFF;
+    }
+
+    /* Sub-Category Filter Tabs (第二層分類) */
+    .sub-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 auto 2.2rem;
+      padding: 0.6rem 1rem;
+      max-width: 760px;
+    }
+
+    .sub-filter-bar.hidden {
+      display: none;
+    }
+
+    .sub-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-right: 0.3rem;
+    }
+
+    .sub-btn {
+      background-color: transparent;
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      padding: 0.35rem 0.95rem;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sub-btn:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    .sub-btn.active {
+      background-color: var(--terracotta-soft);
+      border-color: var(--terracotta);
+      color: #B86446;
+    }
+
+    /* Grid Layout */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* Printable Card */
+    .card {
+      background: var(--card-white);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(47, 54, 50, 0.07);
+    }
+
+    .card-thumb {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover .card-thumb img {
+      transform: scale(1.03);
+    }
+
+    .badge-group {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background-color: var(--warm-sand);
+      color: var(--text-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.22rem 0.6rem;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .badge.sub {
+      background-color: var(--terracotta-soft);
+      color: #B86446;
+    }
+
+    .card-body {
+      padding: 1.2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-download {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: var(--sage-green);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-download:hover {
+      background-color: var(--sage-hover);
+    }
+
+    /* Coming Soon Placeholder Card */
+    .card.coming-soon {
+      background-color: var(--warm-sand);
+      border: 1.5px dashed #CFC6B8;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      min-height: 360px;
+    }
+
+    /* Lightbox Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+      background-color: rgba(47, 54, 50, 0.75);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-content {
+      background: #FFFFFF;
+      border-radius: 16px;
+      max-width: 540px;
+      width: 100%;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .modal-content img {
+      max-height: 62vh;
+      width: auto;
+      max-width: 100%;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-white);
+      border-top: 1px solid var(--border-light);
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer strong { color: var(--text-dark); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">Lily <span>&amp;</span> Mu Wonder Studio</div>
+    <div class="brand-subtitle">Cozy Printable Coloring Pages &amp; Early Learning Sheets</div>
+  </header>
+
+  <section class="hero">
+    <h1>Simple, Bold &amp; Cozy Printables for Little Hands</h1>
+    <p>Original Scandinavian-inspired coloring pages, line tracing, and number activities. Free to download and print at home or in the classroom.</p>
+  </section>
+
+  <!-- 第一層：主分類篩選 -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Printables</button>
+    <button class="filter-btn" data-filter="coloring">Coloring Pages</button>
+    <button class="filter-btn" data-filter="tracing">Tracing &amp; Lines</button>
+    <button class="filter-btn" data-filter="numbers">Numbers &amp; Math</button>
+  </div>
+
+  <!-- 第二層：塗色圖次分類篩選 -->
+  <div class="sub-filter-bar" id="coloringSubBar">
+    <span class="sub-label">Themes:</span>
+    <button class="sub-btn active" data-sub="all">All Themes</button>
+    <button class="sub-btn" data-sub="animals">Animals</button>
+    <button class="sub-btn" data-sub="plants">Plants &amp; Nature</button>
+    <button class="sub-btn" data-sub="christmas">Christmas</button>
+  </div>
+
+  <!-- Printables Gallery -->
+  <main class="container">
+    <div class="grid" id="gallery">
+
+      <!-- 範例卡片 1：塗色圖 -> Animals -->
+      <article class="card" data-category="coloring" data-sub="animals">
+        <div class="card-thumb" onclick="openPreview(this, 'Cozy Woodland Bear', 'downloads/cozy-bear.pdf')">
+          <div class="badge-group">
+            <span class="badge">Coloring</span>
+            <span class="badge sub">Animals</span>
+          </div>
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><circle cx='150' cy='185' r='70' fill='none' stroke='%23222' stroke-width='5'/><circle cx='98' cy='132' r='24' fill='none' stroke='%23222' stroke-width='5'/><circle cx='202' cy='132' r='24' fill='none' stroke='%23222' stroke-width='5'/><circle cx='128' cy='175' r='6' fill='%23222'/><circle cx='172' cy='175' r='6' fill='%23222'/><ellipse cx='150' cy='198' rx='18' ry='13' fill='none' stroke='%23222' stroke-width='4'/><circle cx='150' cy='193' r='5' fill='%23222'/><text x='150' y='320' font-family='sans-serif' font-size='15' text-anchor='middle' fill='%23666'>Animals: Cozy Bear</text></svg>" alt="Cozy Woodland Bear Coloring Page">
+        </div>
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Cozy Woodland Bear</h2>
+            <p class="card-desc">Thick, easy-to-color outlines designed for toddlers and preschoolers. (A4 PDF)</p>
+          </div>
+          <a href="downloads/cozy-bear.pdf" download class="btn-download">Download Free PDF</a>
+        </div>
+      </article>
+
+      <!-- 範例卡片 2：塗色圖 -> Plants & Nature -->
+      <article class="card" data-category="coloring" data-sub="plants">
+        <div class="card-thumb" onclick="openPreview(this, 'Happy Potted Monstera', 'downloads/potted-monstera.pdf')">
+          <div class="badge-group">
+            <span class="badge">Coloring</span>
+            <span class="badge sub">Plants</span>
+          </div>
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><polygon points='110,220 190,220 178,285 122,285' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><rect x='104' y='206' width='92' height='14' rx='5' fill='none' stroke='%23222' stroke-width='5'/><path d='M150 206 C150 160, 115 155, 110 125 C135 120, 150 150, 150 175' fill='none' stroke='%23222' stroke-width='5' stroke-linecap='round'/><path d='M150 190 C150 145, 185 140, 190 110 C165 105, 150 135, 150 165' fill='none' stroke='%23222' stroke-width='5' stroke-linecap='round'/><text x='150' y='330' font-family='sans-serif' font-size='15' text-anchor='middle' fill='%23666'>Plants: Potted Leaf</text></svg>" alt="Happy Potted Monstera Coloring Page">
+        </div>
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Happy Potted Plant</h2>
+            <p class="card-desc">Simple Scandinavian botanical leaf illustration for relaxing coloring time. (A4 PDF)</p>
+          </div>
+          <a href="downloads/potted-monstera.pdf" download class="btn-download">Download Free PDF</a>
+        </div>
+      </article>
+
+      <!-- 範例卡片 3：塗色圖 -> Christmas -->
+      <article class="card" data-category="coloring" data-sub="christmas">
+        <div class="card-thumb" onclick="openPreview(this, 'Cozy Christmas Tree', 'downloads/christmas-tree.pdf')">
+          <div class="badge-group">
+            <span class="badge">Coloring</span>
+            <span class="badge sub">Christmas</span>
+          </div>
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><polygon points='150,95 105,165 195,165' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><polygon points='150,140 92,225 208,225' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><rect x='136' y='225' width='28' height='35' fill='none' stroke='%23222' stroke-width='5'/><circle cx='150' cy='80' r='9' fill='none' stroke='%23222' stroke-width='4'/><text x='150' y='315' font-family='sans-serif' font-size='15' text-anchor='middle' fill='%23666'>Christmas: Cozy Tree</text></svg>" alt="Cozy Christmas Tree Coloring Page">
+        </div>
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Cozy Christmas Tree</h2>
+            <p class="card-desc">Festive holiday tree with bold outlines ready for crayons and markers. (A4 PDF)</p>
+          </div>
+          <a href="downloads/christmas-tree.pdf" download class="btn-download">Download Free PDF</a>
+        </div>
+      </article>
+
+      <!-- 預留擴充卡片 4：描圖練習 -->
+      <article class="card coming-soon" data-category="tracing" data-sub="none">
+        <div>
+          <span class="badge" style="display:inline-block; margin-bottom:0.8rem;">Tracing &amp; Lines</span>
+          <h3 class="card-title">Pre-Writing Line Tracing</h3>
+          <p class="card-desc">Curvy waves, zigzags, and cozy animal paths coming soon!</p>
+        </div>
+      </article>
+
+      <!-- 預留擴充卡片 5：數字練習 -->
+      <article class="card coming-soon" data-category="numbers" data-sub="none">
+        <div>
+          <span class="badge" style="display:inline-block; margin-bottom:0.8rem;">Numbers &amp; Math</span>
+          <h3 class="card-title">Count &amp; Color 1–10</h3>
+          <p class="card-desc">Playful woodland counting sheets and number tracing coming soon!</p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Image Preview Modal -->
+  <div class="modal" id="previewModal" onclick="closePreview(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePreview(event, true)">&times;</button>
+      <img id="modalImg" src="" alt="Printable Preview">
+      <h3 id="modalTitle" class="card-title" style="margin-bottom:0.8rem;"></h3>
+      <a id="modalDownload" href="#" download class="btn-download">Download Printable PDF</a>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>&copy; 2026 Lily &amp; Mu Wonder Studio. All rights reserved.</strong></p>
+  </footer>
+
+  <script>
+    const mainBtns = document.querySelectorAll('.filter-btn');
+    const subBtns = document.querySelectorAll('.sub-btn');
+    const subBar = document.getElementById('coloringSubBar');
+    const cards = document.querySelectorAll('.card');
+
+    let currentMain = 'all';
+    let currentSub = 'all';
+
+    function filterGallery() {
+      // 控制第二層次分類列是否顯示（在 All 或 Coloring 狀態下顯示）
+      if (currentMain === 'all' || currentMain === 'coloring') {
+        subBar.classList.remove('hidden');
+      } else {
+        subBar.classList.add('hidden');
+      }
+
+      cards.forEach(card => {
+        const cardCat = card.dataset.category;
+        const cardSub = card.dataset.sub;
+
+        const matchMain = (currentMain === 'all') || (cardCat === currentMain);
+        const matchSub = (currentSub === 'all') || (cardSub === currentSub);
+
+        if (matchMain && matchSub) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 第一層按鈕點擊事件
+    mainBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        mainBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentMain = btn.dataset.filter;
+
+        // 切換主分類時，把次分類重置為 All Themes
+        currentSub = 'all';
+        subBtns.forEach(sb => sb.classList.remove('active'));
+        subBtns[0].classList.add('active');
+
+        filterGallery();
+      });
+    });
+
+    // 第二層按鈕點擊事件
+    subBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        subBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSub = btn.dataset.sub;
+
+        // 若點選特定主題（例如 Animals），自動把主分類對齊到 Coloring Pages
+        if (currentSub !== 'all' && currentMain === 'all') {
+          currentMain = 'coloring';
+          mainBtns.forEach(mb => {
+            mb.classList.toggle('active', mb.dataset.filter === 'coloring');
+          });
+        }
+
+        filterGallery();
+      });
+    });
+
+    // 大圖預覽視窗功能
+    function openPreview(thumbEl, title, pdfUrl) {
+      const clickedImg = thumbEl.querySelector('img').src;
+      document.getElementById('modalImg').src = clickedImg;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDownload').href = pdfUrl;
+      document.getElementById('previewModal').classList.add('open');
+    }
+
+    function closePreview(event, force = false) {
+      if (force || event.target.id === 'previewModal') {
+        document.getElementById('previewModal').classList.remove('open');
+      }
+    }
+  </script>
+
+</body>
+</html>
