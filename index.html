@@ -603,6 +603,14 @@
     }
 
     function printPDF(pdfUrl) {
+      // 偵測是否為手機或平板裝置（iOS / Android）
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.open(pdfUrl, '_blank');
+        return;
+      }
+
+      // 桌面版（Mac / Windows）使用隱藏視窗直接叫出系統列印對話框
       let printFrame = document.getElementById('hidden-print-frame');
       if (!printFrame) {
         printFrame = document.createElement('iframe');
