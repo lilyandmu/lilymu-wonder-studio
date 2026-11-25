@@ -1,179 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lily &amp; Mu Wonder Studio | Free Printable Coloring Pages &amp; Kids Worksheets</title>
-  <meta name="description" content="Download free, Scandinavian-inspired printable coloring pages, tracing sheets, and early math activities for kids by Lily &amp; Mu Wonder Studio.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>兒童閱讀創意共學資源｜Kids Bilingual News &amp; Printable</title>
+  <meta name="description" content="兒童閱讀創意共學資源（Kids Bilingual News & Printable）by Lily & Mu Wonder Studio。提供每週中英雙語兒童週報（兩張 A4 共 8 則新聞＋閱讀思考測驗）、主題學習單與免費北歐風著色畫。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Nunito:wght@600;700;800;900&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-cream: #FAF8F5;
       --card-white: #FFFFFF;
-      --text-dark: #2F3632;
-      --text-muted: #68736D;
+      --text-main: #2F3632;
+      --text-muted: #646E68;
       --sage-green: #6B8E78;
       --sage-hover: #567562;
+      --sage-soft: #EBF1ED;
       --warm-sand: #EFEAE1;
       --terracotta: #D98A6C;
       --terracotta-soft: #F7EAE4;
+      --sky-soft: #E8F0F4;
+      --sky-text: #466A7E;
+      --amber-soft: #FFF5DC;
+      --amber-text: #9C6500;
       --border-light: #E6E0D6;
+      --shadow-soft: 0 8px 24px rgba(47, 54, 50, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Noto Sans TC', 'Nunito', sans-serif;
       background-color: var(--bg-cream);
-      color: var(--text-dark);
-      line-height: 1.6;
+      color: var(--text-main);
+      line-height: 1.65;
     }
 
-    /* Header & Brand */
-    header {
-      background-color: var(--card-white);
-      border-bottom: 1px solid var(--border-light);
-      padding: 1.5rem 5%;
-      text-align: center;
+    /* ================= 頂部導覽列 ================= */
+    header.site-header {
+      background: var(--card-white);
+      border-bottom: 1.5px solid var(--border-light);
+      padding: 14px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-link {
+      text-decoration: none;
+      color: var(--text-main);
+      cursor: pointer;
     }
 
     .brand-title {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      letter-spacing: -0.5px;
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      line-height: 1.25;
     }
 
-    .brand-title span {
+    .brand-sub {
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--sage-hover);
+      margin-top: 2px;
+    }
+
+    .brand-sub em {
+      font-style: normal;
       color: var(--terracotta);
     }
 
-    .brand-subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-top: 0.35rem;
-    }
-
-    /* Hero Banner */
-    .hero {
-      max-width: 820px;
-      margin: 2.5rem auto 1.5rem;
-      padding: 0 1.5rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 1.75rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-
-    /* Primary Category Filter Tabs */
-    .filter-bar {
+    .top-nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.65rem;
-      margin: 1.8rem auto 0.9rem;
-      padding: 0 1rem;
+      gap: 8px;
     }
 
-    .filter-btn {
-      background-color: var(--card-white);
+    .nav-pill {
+      background: var(--bg-cream);
       border: 1.5px solid var(--border-light);
-      color: var(--text-dark);
-      padding: 0.55rem 1.2rem;
+      color: var(--text-main);
+      padding: 7px 15px;
       border-radius: 999px;
-      font-family: 'Nunito', sans-serif;
+      font-family: inherit;
+      font-size: 0.88rem;
       font-weight: 700;
-      font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    .filter-btn:hover {
-      border-color: var(--sage-green);
-      color: var(--sage-green);
-    }
-
-    .filter-btn.active {
-      background-color: var(--sage-green);
+    .nav-pill:hover, .nav-pill.active {
+      background: var(--sage-green);
       border-color: var(--sage-green);
       color: #FFFFFF;
     }
 
-    /* Sub-Category Filter Tabs (第二層分類) */
-    .sub-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0 auto 2.2rem;
-      padding: 0.6rem 1rem;
-      max-width: 820px;
+    /* ================= 視圖切換控制 ================= */
+    .view-panel {
+      display: none;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 28px 20px 64px;
     }
 
-    .sub-filter-bar.hidden {
-      display: none;
+    .view-panel.active { display: block; }
+
+    /* ================= 首頁：品牌定位橫幅 ================= */
+    .hero-box {
+      background: linear-gradient(135deg, #EBF1ED 0%, #FAF3E8 100%);
+      border: 1.5px solid #DCE5DF;
+      border-radius: 22px;
+      padding: 32px 28px;
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-box h1 {
+      font-size: 1.75rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .hero-box p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* 區塊標題 */
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--border-light);
+    }
+
+    .section-head h2 {
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .section-head p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ================= 首頁分區一：本週最新兒童新聞卡片 ================= */
+    .news-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 46px;
+    }
+
+    .issue-card {
+      background: var(--card-white);
+      border: 1.5px solid var(--border-light);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .issue-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--sage-green);
+    }
+
+    .issue-card-top {
+      background: var(--warm-sand);
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .issue-badge {
+      background: var(--sage-green);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 3px 11px;
+      border-radius: 8px;
+    }
+
+    .issue-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .issue-card-body {
+      padding: 18px;
+      flex: 1;
+    }
+
+    .issue-card-body h3 {
+      font-size: 1.12rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .mini-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .mini-pills span {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 2px 9px;
+      border-radius: 6px;
+    }
+
+    .issue-card-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .issue-card-foot {
+      padding: 12px 18px;
+      background: #FCFBF9;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--sage-hover);
+    }
+
+    /* ================= 首頁分區二：主題學習單 & 著色圖篩選與卡片 ================= */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .filter-btn {
+      background: var(--card-white);
+      border: 1.5px solid var(--border-light);
+      color: var(--text-main);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover { border-color: var(--sage-green); color: var(--sage-green); }
+    .filter-btn.active { background: var(--sage-green); border-color: var(--sage-green); color: #FFFFFF; }
+
+    .sub-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 22px;
     }
 
     .sub-label {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--text-muted);
-      margin-right: 0.3rem;
+      margin-right: 4px;
     }
 
     .sub-btn {
-      background-color: transparent;
+      background: transparent;
       border: 1px solid var(--border-light);
       color: var(--text-muted);
-      padding: 0.35rem 0.95rem;
+      padding: 4px 13px;
       border-radius: 999px;
-      font-family: 'Nunito', sans-serif;
+      font-family: inherit;
+      font-size: 0.82rem;
       font-weight: 700;
-      font-size: 0.85rem;
       cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .sub-btn:hover {
-      border-color: var(--terracotta);
-      color: var(--terracotta);
     }
 
     .sub-btn.active {
-      background-color: var(--terracotta-soft);
+      background: var(--terracotta-soft);
       border-color: var(--terracotta);
       color: #B86446;
     }
 
-    /* Grid Layout */
-    .container {
-      max-width: 1140px;
-      margin: 0 auto 4rem;
-      padding: 0 1.5rem;
-    }
-
-    .grid {
+    .printables-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    /* Printable Card */
-    .card {
+    .p-card {
       background: var(--card-white);
-      border: 1px solid var(--border-light);
+      border: 1.5px solid var(--border-light);
       border-radius: 16px;
       overflow: hidden;
       display: flex;
@@ -181,15 +343,15 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .card:hover {
+    .p-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(47, 54, 50, 0.07);
+      box-shadow: var(--shadow-soft);
     }
 
-    .card-thumb {
+    .p-thumb {
       position: relative;
       aspect-ratio: 3 / 4;
-      background-color: #FFFFFF;
+      background: #FFFFFF;
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
@@ -198,7 +360,7 @@
       cursor: pointer;
     }
 
-    .card-thumb img {
+    .p-thumb img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -206,442 +368,1141 @@
       transition: transform 0.25s ease;
     }
 
-    .card:hover .card-thumb img {
-      transform: scale(1.03);
-    }
+    .p-card:hover .p-thumb img { transform: scale(1.03); }
 
-    .badge-group {
+    .badge-stack {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       display: flex;
-      gap: 6px;
       flex-wrap: wrap;
+      gap: 5px;
     }
 
     .badge {
-      background-color: var(--warm-sand);
-      color: var(--text-dark);
       font-size: 0.72rem;
       font-weight: 800;
-      padding: 0.22rem 0.6rem;
-      border-radius: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+      padding: 3px 8px;
+      border-radius: 7px;
+      background: var(--warm-sand);
+      color: var(--text-main);
     }
 
-    .badge.sub {
-      background-color: var(--terracotta-soft);
-      color: #B86446;
-    }
+    .badge.popular { background: var(--amber-soft); color: var(--amber-text); }
+    .badge.sub { background: var(--terracotta-soft); color: #B86446; }
+    .badge.ws { background: var(--sky-soft); color: var(--sky-text); }
 
-    .badge.popular {
-      background-color: #FFF3D6;
-      color: #A66B00;
-    }
-
-    .card-body {
-      padding: 1.15rem 1.2rem 1.25rem;
-      flex-grow: 1;
+    .p-body {
+      padding: 15px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .card-title {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
+    .p-title {
+      font-size: 1.06rem;
+      font-weight: 800;
+      margin-bottom: 4px;
     }
 
-    .card-desc {
+    .p-desc {
+      font-size: 0.84rem;
       color: var(--text-muted);
-      font-size: 0.88rem;
-      margin-bottom: 0.95rem;
+      margin-bottom: 8px;
     }
 
-    /* 卡片與預覽視窗底部：Print PDF 在上、Download 在下，兩顆同寬同高 */
-    .card-actions,
-    .modal-actions {
+    .cross-news-trigger {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--sky-text);
+      text-decoration: none;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .cross-news-trigger:hover { text-decoration: underline; }
+
+    /* Print PDF (上方) + Download Free PDF (下方) 等寬等高 */
+    .btn-stack {
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
+      gap: 7px;
       width: 100%;
     }
 
-    .btn-print,
-    .btn-download {
+    .btn-print-pdf, .btn-download-pdf {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
+      gap: 6px;
       width: 100%;
-      height: 42px;
-      padding: 0 1rem;
+      height: 40px;
       border-radius: 10px;
-      font-family: 'Nunito', sans-serif;
+      font-family: inherit;
+      font-size: 0.9rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      line-height: 1;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
     }
 
-    .btn-print {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
+    .btn-print-pdf {
+      background: var(--bg-cream);
+      color: var(--text-main);
       border: 1.5px solid var(--border-light);
     }
 
-    .btn-print:hover {
-      background-color: var(--warm-sand);
+    .btn-print-pdf:hover {
+      background: var(--warm-sand);
       border-color: var(--sage-green);
     }
 
-    .btn-download {
-      background-color: var(--sage-green);
+    .btn-download-pdf {
+      background: var(--sage-green);
       color: #FFFFFF;
       border: 1.5px solid var(--sage-green);
     }
 
-    .btn-download:hover {
-      background-color: var(--sage-hover);
+    .btn-download-pdf:hover {
+      background: var(--sage-hover);
       border-color: var(--sage-hover);
     }
 
-    /* Coming Soon Placeholder Card */
-    .card.coming-soon {
-      background-color: var(--warm-sand);
-      border: 1.5px dashed #CFC6B8;
-      justify-content: center;
+    /* ================= 週報閱讀與兩張 A4 雙面版面 ================= */
+    .issue-toolbar {
+      background: var(--card-white);
+      border: 1.5px solid var(--border-light);
+      border-radius: 16px;
+      padding: 12px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      min-height: 360px;
+      gap: 10px;
     }
 
-    /* Lightbox Modal */
+    .toolbar-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-back {
+      background: var(--bg-cream);
+      border: 1.5px solid var(--border-light);
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+
+    .lang-toggle {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-toggle.active {
+      background: var(--text-main);
+      border-color: var(--text-main);
+      color: #FFFFFF;
+    }
+
+    .btn-print-a4 {
+      background: var(--terracotta);
+      color: #FFFFFF;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(217, 138, 108, 0.35);
+    }
+
+    .btn-print-a4:hover { background: #C67658; }
+
+    /* A4 紙張區塊 */
+    .a4-sheet {
+      background: var(--card-white);
+      max-width: 920px;
+      margin: 0 auto 28px;
+      padding: 28px 32px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border-light);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .sheet-masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--sage-green);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+
+    .masthead-left .sub-brand {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      letter-spacing: 0.5px;
+    }
+
+    .masthead-left h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .masthead-right {
+      text-align: right;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .page2-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px dashed var(--border-light);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* 2x2 圓角便當盒四宮格 */
+    .bento-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .news-card-box {
+      border: 1.5px solid var(--border-light);
+      border-radius: 16px;
+      padding: 14px 15px;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .nc-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .nc-cat {
+      font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--sage-soft);
+      color: var(--sage-hover);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .nc-num {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #9AA39E;
+    }
+
+    /* 真實照片風格容器（16:9 滿版裁切，方便日後替換圖片） */
+    .nc-visual {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-cream);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+
+    .nc-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .news-card-box h3 {
+      font-size: 1.02rem;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .nc-en-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--terracotta);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .nc-zh-body {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      margin-bottom: 7px;
+      line-height: 1.5;
+    }
+
+    /* 英文完整內文（僅在切換至「英文」模式時顯示，與中文內文資訊量一致） */
+    .nc-en-full-body {
+      display: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .nc-en-box {
+      background: var(--bg-cream);
+      border-left: 3px solid var(--sage-green);
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 0.79rem;
+      margin-bottom: 7px;
+    }
+
+    .nc-en-box strong {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-main);
+    }
+
+    .nc-en-box span {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .nc-words {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding-top: 5px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    .w-chip {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--warm-sand);
+      padding: 2px 7px;
+      border-radius: 5px;
+    }
+
+    /* ================= 三種語言切換顯示規則 ================= */
+    /* 中文模式：隱藏所有英文元素 */
+    body.lang-zh .en-part,
+    body.lang-zh .bilingual-en-box,
+    body.lang-zh .nc-en-full-body { display: none !important; }
+
+    /* 英文模式：隱藏中文內文與雙語短句框，改顯示完整英文段落 */
+    body.lang-en .zh-part,
+    body.lang-en .bilingual-en-box { display: none !important; }
+    body.lang-en .nc-en-full-body { display: block !important; }
+    body.lang-en .nc-en-title { font-size: 1.02rem; color: var(--text-main); margin-bottom: 6px; }
+    .en-only-mode { display: none; }
+    body.lang-en .en-only-mode { display: block !important; }
+
+    /* Did You Know 趣味小知識 */
+    .dyk-banner {
+      background: var(--amber-soft);
+      border: 1.5px solid #F0D28C;
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .dyk-banner h4 {
+      font-size: 0.94rem;
+      font-weight: 900;
+      color: var(--amber-text);
+      margin-bottom: 3px;
+    }
+
+    .dyk-banner p { font-size: 0.84rem; margin-bottom: 2px; }
+    .dyk-banner .dyk-en { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+
+    /* Reading Check 閱讀思考測驗 */
+    .quiz-card {
+      background: var(--bg-cream);
+      border: 1.5px solid var(--border-light);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+
+    .quiz-card h4 {
+      font-size: 0.98rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .q-row {
+      margin-bottom: 9px;
+      font-size: 0.84rem;
+    }
+
+    .q-row p { font-weight: 700; margin-bottom: 3px; }
+    .q-opts { display: flex; flex-wrap: wrap; gap: 14px; padding-left: 10px; }
+    .write-line { border-bottom: 1px dashed #9CA5A0; height: 20px; margin-top: 3px; }
+
+    /* 頁尾倒置家長參考答案（Upside-down Answer Key） */
+    .upside-down-answers {
+      border-top: 1.5px dashed var(--border-light);
+      padding-top: 8px;
+      margin-top: 8px;
+      transform: rotate(180deg);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      text-align: left;
+    }
+
+    .upside-down-answers strong { color: var(--text-main); }
+
+    /* 週報底部跨分類內部連結：延伸手作／著色時間 */
+    .extended-craft-box {
+      max-width: 920px;
+      margin: 0 auto 24px;
+      background: var(--terracotta-soft);
+      border: 1.5px solid var(--terracotta);
+      border-radius: 18px;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .extended-craft-box img {
+      width: 105px;
+      aspect-ratio: 3 / 4;
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 1px solid var(--border-light);
+      padding: 6px;
+      object-fit: contain;
+    }
+
+    .extended-craft-info { flex: 1; min-width: 240px; }
+    .extended-craft-info .tag { font-size: 0.78rem; font-weight: 800; color: #B86446; }
+    .extended-craft-info h3 { font-size: 1.18rem; font-weight: 900; margin: 2px 0 5px; }
+    .extended-craft-info p { font-size: 0.88rem; margin-bottom: 10px; }
+
+    .craft-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .craft-btns .btn-download-pdf,
+    .craft-btns .btn-print-pdf { width: auto; padding: 0 16px; height: 38px; font-size: 0.86rem; }
+
+    /* ================= 預覽彈窗（含延伸閱讀新聞） ================= */
     .modal {
       display: none;
       position: fixed;
       z-index: 999;
       inset: 0;
-      background-color: rgba(47, 54, 50, 0.75);
+      background: rgba(47, 54, 50, 0.75);
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      padding: 18px;
     }
 
     .modal.open { display: flex; }
 
-    .modal-content {
+    .modal-box {
       background: #FFFFFF;
-      border-radius: 16px;
-      max-width: 500px;
+      border-radius: 18px;
+      max-width: 460px;
       width: 100%;
-      padding: 1.5rem;
+      padding: 20px;
       text-align: center;
       position: relative;
+      max-height: 92vh;
+      overflow-y: auto;
     }
 
     .modal-close {
       position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 1.6rem;
+      top: 10px;
+      right: 14px;
+      font-size: 1.5rem;
       background: none;
       border: none;
       cursor: pointer;
       color: var(--text-muted);
     }
 
-    .modal-content img {
-      max-height: 58vh;
-      width: auto;
+    .modal-box img {
+      max-height: 44vh;
       max-width: 100%;
       border: 1px solid var(--border-light);
       border-radius: 8px;
-      margin-bottom: 1rem;
+      margin-bottom: 12px;
     }
 
-    /* Footer */
-    footer {
-      background-color: var(--card-white);
+    .modal-news-callout {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: var(--sky-soft);
+      border-radius: 10px;
+      text-align: left;
+      font-size: 0.84rem;
+    }
+
+    .modal-news-callout strong { display: block; color: var(--sky-text); margin-bottom: 2px; }
+    .modal-news-callout a { color: var(--text-main); font-weight: 800; text-decoration: underline; cursor: pointer; }
+
+    footer.site-footer {
+      background: var(--card-white);
       border-top: 1px solid var(--border-light);
-      padding: 2.2rem 1.5rem;
+      padding: 26px 20px;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.86rem;
     }
 
-    footer strong { color: var(--text-dark); }
+    @media (max-width: 720px) {
+      .bento-grid-4 { grid-template-columns: 1fr; }
+      .a4-sheet { padding: 18px 14px; }
+      .sheet-masthead { flex-direction: column; align-items: flex-start; }
+      .masthead-right { text-align: left; }
+    }
+
+    /* ================= A4 雙面列印專用樣式 ================= */
+    @media print {
+      @page { size: A4 portrait; margin: 9mm; }
+      body { background: #FFFFFF !important; }
+      header.site-header, .issue-toolbar, .extended-craft-box, footer.site-footer { display: none !important; }
+      .view-panel { padding: 0 !important; max-width: 100% !important; }
+      .a4-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        page-break-after: always;
+      }
+      .a4-sheet:last-of-type { page-break-after: auto; }
+      .bento-grid-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; margin-bottom: 10px !important; }
+      .news-card-box { padding: 9px 11px !important; break-inside: avoid; }
+      .nc-visual { aspect-ratio: 16 / 9 !important; max-height: 82px !important; margin-bottom: 5px !important; }
+      .news-card-box h3 { font-size: 0.92rem !important; }
+      .nc-zh-body, .nc-en-full-body { font-size: 0.78rem !important; line-height: 1.4 !important; }
+      .nc-en-box { padding: 4px 7px !important; font-size: 0.74rem !important; }
+      .quiz-card { padding: 10px 14px !important; margin-bottom: 6px !important; }
+      .q-row { margin-bottom: 6px !important; font-size: 0.8rem !important; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="brand-title">Lily <span>&amp;</span> Mu Wonder Studio</div>
-    <div class="brand-subtitle">Cozy Printable Coloring Pages &amp; Early Learning Sheets</div>
+  <!-- 頂部網站導覽 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-link" onclick="switchView('home')">
+        <div class="brand-title">兒童閱讀創意共學資源</div>
+        <div class="brand-sub">Kids Bilingual News &amp; Printable</div>
+      </div>
+      <nav class="top-nav">
+        <button class="nav-pill active" id="nav-home" onclick="switchView('home')">🏠 首頁總覽</button>
+        <button class="nav-pill" id="nav-issue" onclick="openIssue('issue-01')">📰 每週兒童新聞</button>
+        <button class="nav-pill" onclick="jumpToPrintables('worksheets')">📝 主題學習單</button>
+        <button class="nav-pill" onclick="jumpToPrintables('coloring')">🎨 著色圖</button>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Simple, Bold &amp; Cozy Printables for Little Hands</h1>
-    <p>Original Scandinavian-inspired coloring pages, line tracing, and number activities. Free to download and print at home or in the classroom.</p>
-  </section>
+  <!-- ==================== 視圖一：網站首頁 ==================== -->
+  <main id="view-home" class="view-panel active">
+    <section class="hero-box">
+      <span class="hero-tag">親子共學 × 系統化數位教材庫</span>
+      <h1>每週讀世界雙語新聞，搭配創意學習單與著色圖</h1>
+      <p>為兒童設計的共學平台：每週兩張 A4 雙語週報（8 則精選新聞＋閱讀思考測驗），串聯可一鍵列印的主題學習單與著色圖。</p>
+    </section>
 
-  <!-- 第一層：主分類篩選 -->
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All Printables</button>
-    <button class="filter-btn" data-filter="coloring">Coloring Pages</button>
-    <button class="filter-btn" data-filter="tracing">Tracing &amp; Lines</button>
-    <button class="filter-btn" data-filter="numbers">Numbers &amp; Math</button>
-  </div>
-
-  <!-- 第二層：塗色圖次分類篩選 -->
-  <div class="sub-filter-bar" id="coloringSubBar">
-    <span class="sub-label">Themes:</span>
-    <button class="sub-btn active" data-sub="all">All Themes</button>
-    <button class="sub-btn" data-sub="popular">⭐ Popular</button>
-    <button class="sub-btn" data-sub="animals">Animals</button>
-    <button class="sub-btn" data-sub="plants">Plants &amp; Nature</button>
-    <button class="sub-btn" data-sub="christmas">Christmas</button>
-  </div>
-
-  <!-- Printables Gallery -->
-  <main class="container">
-    <div class="grid" id="gallery">
-
-      <!-- 卡片 1：塗色圖 -> Animals -->
-      <article class="card" data-category="coloring" data-sub="animals" data-popular="true">
-        <div class="card-thumb" onclick="openPreview(this, 'Cute Lion Coloring Page', 'downloads/animal-lion.pdf')">
-          <div class="badge-group">
-            <span class="badge popular">⭐ Popular</span>
-            <span class="badge sub">Animals</span>
-          </div>
-          <img src="images/animal-lion.png" alt="Cute Lion Printable Coloring Page">
-        </div>
-        <div class="card-body">
-          <div>
-            <h2 class="card-title">Cute Lion Coloring Page</h2>
-            <p class="card-desc">Scandinavian-style lion with bold outlines. (A4 PDF)</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn-print" onclick="recordClick('animal-lion'); printPDF('downloads/animal-lion.pdf')">🖨️ Print PDF</button>
-            <a href="downloads/animal-lion.pdf" download class="btn-download" onclick="recordClick('animal-lion')">Download Free PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 範例卡片 2：塗色圖 -> Plants & Nature -->
-      <article class="card" data-category="coloring" data-sub="plants" data-popular="false">
-        <div class="card-thumb" onclick="openPreview(this, 'Happy Potted Monstera', 'downloads/potted-monstera.pdf')">
-          <div class="badge-group">
-            <span class="badge">Coloring</span>
-            <span class="badge sub">Plants</span>
-          </div>
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><polygon points='110,220 190,220 178,285 122,285' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><rect x='104' y='206' width='92' height='14' rx='5' fill='none' stroke='%23222' stroke-width='5'/><path d='M150 206 C150 160, 115 155, 110 125 C135 120, 150 150, 150 175' fill='none' stroke='%23222' stroke-width='5' stroke-linecap='round'/><path d='M150 190 C150 145, 185 140, 190 110 C165 105, 150 135, 150 165' fill='none' stroke='%23222' stroke-width='5' stroke-linecap='round'/><text x='150' y='330' font-family='sans-serif' font-size='15' text-anchor='middle' fill='%23666'>Plants: Potted Leaf</text></svg>" alt="Happy Potted Monstera Coloring Page">
-        </div>
-        <div class="card-body">
-          <div>
-            <h2 class="card-title">Happy Potted Plant</h2>
-            <p class="card-desc">Simple Scandinavian botanical leaf illustration. (A4 PDF)</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn-print" onclick="recordClick('potted-monstera'); printPDF('downloads/potted-monstera.pdf')">🖨️ Print PDF</button>
-            <a href="downloads/potted-monstera.pdf" download class="btn-download" onclick="recordClick('potted-monstera')">Download Free PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 範例卡片 3：塗色圖 -> Christmas -->
-      <article class="card" data-category="coloring" data-sub="christmas" data-popular="false">
-        <div class="card-thumb" onclick="openPreview(this, 'Cozy Christmas Tree', 'downloads/christmas-tree.pdf')">
-          <div class="badge-group">
-            <span class="badge">Coloring</span>
-            <span class="badge sub">Christmas</span>
-          </div>
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><polygon points='150,95 105,165 195,165' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><polygon points='150,140 92,225 208,225' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><rect x='136' y='225' width='28' height='35' fill='none' stroke='%23222' stroke-width='5'/><circle cx='150' cy='80' r='9' fill='none' stroke='%23222' stroke-width='4'/><text x='150' y='315' font-family='sans-serif' font-size='15' text-anchor='middle' fill='%23666'>Christmas: Cozy Tree</text></svg>" alt="Cozy Christmas Tree Coloring Page">
-        </div>
-        <div class="card-body">
-          <div>
-            <h2 class="card-title">Cozy Christmas Tree</h2>
-            <p class="card-desc">Festive holiday tree with bold outlines. (A4 PDF)</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn-print" onclick="recordClick('christmas-tree'); printPDF('downloads/christmas-tree.pdf')">🖨️ Print PDF</button>
-            <a href="downloads/christmas-tree.pdf" download class="btn-download" onclick="recordClick('christmas-tree')">Download Free PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 預留擴充卡片 4：描圖練習 -->
-      <article class="card coming-soon" data-category="tracing" data-sub="none">
+    <!-- 首頁第一區：本週最新兒童新聞 -->
+    <section>
+      <div class="section-head">
         <div>
-          <span class="badge" style="display:inline-block; margin-bottom:0.8rem;">Tracing &amp; Lines</span>
-          <h3 class="card-title">Pre-Writing Line Tracing</h3>
-          <p class="card-desc">Curvy waves, zigzags, and cozy paths coming soon!</p>
+          <h2>📰 本週最新兒童新聞</h2>
+          <p>點擊卡片進入完整雙語週報，可切換雙語、中文、英文模式並一次列印學習單</p>
         </div>
-      </article>
+      </div>
+      <div class="news-cards-grid" id="issues-container"></div>
+    </section>
 
-      <!-- 預留擴充卡片 5：數字練習 -->
-      <article class="card coming-soon" data-category="numbers" data-sub="none">
+    <!-- 首頁第二區：熱門免費列印資源（主題學習單 & 著色圖） -->
+    <section id="printables-anchor">
+      <div class="section-head">
         <div>
-          <span class="badge" style="display:inline-block; margin-bottom:0.8rem;">Numbers &amp; Math</span>
-          <h3 class="card-title">Count &amp; Color 1–10</h3>
-          <p class="card-desc">Playful woodland counting sheets coming soon!</p>
+          <h2>🖨️ 熱門免費列印資源（主題學習單 / 著色圖）</h2>
+          <p>點擊圖片可放大預覽並閱讀相關主題小新聞，或一鍵列印</p>
         </div>
-      </article>
+      </div>
 
-    </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-cat="all" onclick="setMainCat('all', this)">全部資源</button>
+        <button class="filter-btn" data-cat="worksheets" onclick="setMainCat('worksheets', this)">📝 主題學習單</button>
+        <button class="filter-btn" data-cat="coloring" onclick="setMainCat('coloring', this)">🎨 著色圖</button>
+      </div>
+
+      <div class="sub-filter-row">
+        <span class="sub-label">主題分類：</span>
+        <button class="sub-btn active" data-sub="all" onclick="setSubCat('all', this)">全部主題</button>
+        <button class="sub-btn" data-sub="popular" onclick="setSubCat('popular', this)">⭐ 熱門精選</button>
+        <button class="sub-btn" data-sub="animals" onclick="setSubCat('animals', this)">可愛動物</button>
+        <button class="sub-btn" data-sub="plants" onclick="setSubCat('plants', this)">植物自然</button>
+        <button class="sub-btn" data-sub="christmas" onclick="setSubCat('christmas', this)">節慶聖誕</button>
+      </div>
+
+      <div class="printables-grid" id="printables-container"></div>
+    </section>
   </main>
 
-  <!-- Image Preview Modal -->
-  <div class="modal" id="previewModal" onclick="closePreview(event)">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closePreview(event, true)">&times;</button>
-      <img id="modalImg" src="" alt="Printable Preview">
-      <h3 id="modalTitle" class="card-title" style="margin-bottom:0.9rem;"></h3>
-      <div class="modal-actions">
-        <button type="button" id="modalPrint" class="btn-print">🖨️ Print PDF</button>
-        <a id="modalDownload" href="#" download class="btn-download">Download Printable PDF</a>
+  <!-- ==================== 視圖二：單期週報閱讀與兩張 A4 列印版面 ==================== -->
+  <section id="view-issue" class="view-panel">
+    <div class="issue-toolbar">
+      <button class="btn-back" onclick="switchView('home')">← 返回資源站首頁</button>
+      <div class="toolbar-group">
+        <button class="lang-toggle active" onclick="setLangMode('bilingual', this)">雙語</button>
+        <button class="lang-toggle" onclick="setLangMode('zh', this)">中文</button>
+        <button class="lang-toggle" onclick="setLangMode('en', this)">英文</button>
+        <button class="btn-print-a4" onclick="window.print()">🖨️ 列印本週 2 張 A4 學習單</button>
+      </div>
+    </div>
+
+    <div id="issue-render-area"></div>
+  </section>
+
+  <!-- 著色圖／學習單大圖預覽彈窗 -->
+  <div class="modal" id="previewModal" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal(event, true)">&times;</button>
+      <img id="modalImg" src="" alt="預覽圖">
+      <h3 id="modalTitle" style="font-size:1.12rem; font-weight:900; margin-bottom:12px;"></h3>
+      <div class="btn-stack">
+        <button type="button" id="modalPrintBtn" class="btn-print-pdf">🖨️ Print PDF（直接列印）</button>
+        <a id="modalDownloadBtn" href="#" download class="btn-download-pdf">免費下載 A4 PDF</a>
+      </div>
+      <div class="modal-news-callout" id="modalNewsBox" style="display:none;">
+        <strong>📖 延伸閱讀：關於這個主題的兒童小新聞</strong>
+        <a id="modalNewsLink"></a>
       </div>
     </div>
   </div>
 
-  <footer>
-    <p><strong>&copy; 2026 Lily &amp; Mu Wonder Studio. All rights reserved.</strong></p>
+  <footer class="site-footer">
+    <p><strong>&copy; 2026 兒童閱讀創意共學資源｜Kids Bilingual News &amp; Printable · Lily &amp; Mu Wonder Studio</strong></p>
+    <p style="margin-top:4px;">免費提供家庭親子共讀與學校教學列印使用</p>
   </footer>
 
   <script>
-    const mainBtns = document.querySelectorAll('.filter-btn');
-    const subBtns = document.querySelectorAll('.sub-btn');
-    const subBar = document.getElementById('coloringSubBar');
-    const cards = document.querySelectorAll('.card');
+    /* =====================================================================
+       【每週更新資料區 1：每週兒童週報 WEEKLY_ISSUES】
+       每則新聞皆可填入真實照片網址或本機路徑（如 "images/news-01.jpg"）
+       ===================================================================== */
+    const WEEKLY_ISSUES = [
+      {
+        id: "issue-01",
+        badge: "第 01 期・創刊號",
+        date: "2026 / 11 / 25 出刊",
+        title: "年度 657 本好書推薦、海龜保暖救援與壽山動物園新寶寶",
+        summary: "本週精選 8 則涵蓋 Arts、Politics、Science、Business 與 Fun 的兒童短新聞，附趣味小知識與 3 題閱讀思考測驗。",
+        tags: ["Arts", "Politics", "Science", "Fun"],
+        page1Stories: [
+          {
+            num: "#01",
+            cat: "Arts",
+            img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "文化部選出 657 本年度中小學生好書",
+            enTitle: "657 Great Books Chosen for Young Readers!",
+            zhBody: "文化部公布 2026 年「中小學生讀物選介」結果，評審從超過四千本書籍中，精選出 657 本涵蓋自然科普、繪本與文學的推薦好書，陪伴孩子在閱讀中探索世界。",
+            enBody: "Taiwan's Ministry of Culture announced the 2026 recommended book list for young readers. Judges selected 657 great books from over 4,000 entries, covering science, picture books, and literature to help kids explore the world through reading.",
+            enSentence: "Reading opens a door to a whole new world of imagination!",
+            enTrans: "閱讀為我們打開通往全新想像世界的大門！",
+            words: ["recommend (v.) 推薦", "imagination (n.) 想像力"]
+          },
+          {
+            num: "#02",
+            cat: "Politics",
+            img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "全球攜手守護孩子的權利與未來",
+            enTitle: "World Children's Day: My Rights, My Future",
+            zhBody: "每年 11 月 20 日是「世界兒童日」，今年主題為「我的日子、我的權利、我的未來」，提醒大人傾聽孩子的聲音，並持續改善全球兒童的健康醫療與上學受教機會。",
+            enBody: "World Children's Day is celebrated every year on November 20. This year's theme, 'My Day, My Rights, My Future,' reminds leaders and adults to listen to children's voices and improve healthcare and education for kids worldwide.",
+            enSentence: "Every child has the right to learn, play, and grow up safely.",
+            enTrans: "每個孩子都有權利安全地學習、玩耍與長大。",
+            words: ["right (n.) 權利", "future (n.) 未來"]
+          },
+          {
+            num: "#03",
+            cat: "Science",
+            img: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "海水變冷了！救援團隊守護生病海龜",
+            enTitle: "Rescuers Help Sea Turtles Stay Warm",
+            zhBody: "隨著秋冬季節氣溫下降，部分海域海水變冷，容易讓海龜活動力變差甚至擱淺生病。台灣海洋保育團隊與志工加強海岸巡邏，幫助受傷或失溫的海龜恢復健康再重返大海。",
+            enBody: "As ocean temperatures drop in autumn and winter, sea turtles can become weak or sick. Marine conservation teams and volunteers in Taiwan are patrolling the beaches to rescue cold-stunned turtles and help them return safely to the sea.",
+            enSentence: "Kind helpers protect sea turtles when the ocean gets cold.",
+            enTrans: "當海洋變冷時，善良的幫手們守護著海龜。",
+            words: ["sea turtle (n.) 海龜", "protect (v.) 保護"]
+          },
+          {
+            num: "#04",
+            cat: "Business",
+            img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "世界氣候高峰會聚焦綠色能源未來",
+            enTitle: "World Leaders & Businesses Invest in Green Energy",
+            zhBody: "各國代表與企業齊聚國際氣候高峰會，共同討論如何減少碳排放、投資乾淨的太陽能與風力發電，並保護森林與海洋生態，希望為下一代留住涼爽健康的地球家園。",
+            enBody: "World leaders and global businesses gathered at the international climate summit to discuss lowering carbon emissions. They are investing in clean solar and wind energy while protecting forests and oceans to keep Earth healthy for future generations.",
+            enSentence: "Small green habits every day help keep our Earth cool and clean.",
+            enTrans: "每天的小小綠色習慣，能幫助地球保持涼爽與乾淨。",
+            words: ["planet (n.) 星球／地球", "energy (n.) 能源"]
+          }
+        ],
+        didYouKnow: {
+          title: "Did You Know? 趣味小知識｜海龜寶寶的性別是「沙灘溫度」決定的！",
+          zh: "海龜不像人類是由基因決定性別，而是取決於孵化時的沙灘溫度！如果沙子比較涼爽，孵出來的多半是小男生；如果沙子比較溫暖，就會孵出比較多小女生喔！",
+          en: "Sea turtle eggs do not have boy or girl genes! Warm sand makes more girl turtles, and cool sand makes more boy turtles."
+        },
+        page2Stories: [
+          {
+            num: "#05",
+            cat: "Fun",
+            img: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "壽山動物園迎來可愛動物新寶寶",
+            enTitle: "Cute Baby Animals Arrive at Shoushan Zoo!",
+            zhBody: "高雄壽山動物園近期迎來可愛的動物新生兒，保育員為動物媽媽與寶寶準備了營養滿分的食物與舒適安全的育兒空間，吸引許多親子家庭前來觀察生命成長的奇妙。",
+            enBody: "Shoushan Zoo in Kaohsiung recently welcomed adorable newborn animals! Zookeepers prepared nutritious meals and safe, cozy spaces for the animal moms and babies, drawing many families to visit and observe the wonder of new life.",
+            enSentence: "Zookeepers take special care of the newborn animals and their moms.",
+            enTrans: "保育員細心地照顧新生動物寶寶和牠們的媽媽。",
+            words: ["newborn (adj.) 新生的", "observe (v.) 觀察"]
+          },
+          {
+            num: "#06",
+            cat: "Fun",
+            img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "愛書女孩打造校園「免費共享書架」",
+            enTitle: "A Girl Builds a Free Sharing Bookshelf!",
+            zhBody: "一位熱愛閱讀的小女孩發現許多同學家裡有看完的舊書，於是發起「免費共享書架」計畫，讓大家可以自由交換繪本與故事書，讓好故事在班級裡繼續旅行。",
+            enBody: "A book-loving girl noticed that many classmates had finished reading their old books at home. She started a 'Free Sharing Bookshelf' project at school so students can trade picture books and stories, letting great adventures travel from friend to friend.",
+            enSentence: "Sharing books means sharing happiness with friends.",
+            enTrans: "分享書籍，就是和朋友一起分享快樂。",
+            words: ["bookshelf (n.) 書架", "share (v.) 分享"]
+          },
+          {
+            num: "#07",
+            cat: "Arts",
+            img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "校園變身美術館！學生創意改造生活角落",
+            enTitle: "Schools Turn Into Colorful Art Museums!",
+            zhBody: "多所國小推動「美感校園」計畫，老師帶著學生觀察校園色彩，親手彩繪牆面並設計藝術座椅，把原本單調的走廊變成充滿創意與美感的學習空間。",
+            enBody: "Several elementary schools joined a campus aesthetics project. Teachers guided students to observe colors around their school, paint murals, and design creative benches, transforming plain hallways into inspiring art-filled learning spaces.",
+            enSentence: "Art makes our everyday school life bright and joyful.",
+            enTrans: "藝術讓我們每天的校園生活變得明亮又快樂。",
+            words: ["museum (n.) 美術館", "creative (adj.) 有創意的"]
+          },
+          {
+            num: "#08",
+            cat: "Sports",
+            img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=640&q=80",
+            zhTitle: "小選手熱血登場！校園運動會展現團隊精神",
+            enTitle: "Young Athletes Shine at School Sports Day!",
+            zhBody: "各地國小陸續舉辦秋季運動會，小選手們在大隊接力與趣味競賽中全力以赴。即使有人不小心跌倒，隊友仍互相加油打氣，展現最棒的運動家精神。",
+            enBody: "Elementary schools across the country are hosting exciting autumn sports days. Young athletes gave their best in relay races and fun team games. Even when someone tripped, teammates cheered each other on, showing true sportsmanship.",
+            enSentence: "Teamwork and cheering for friends make every game more fun!",
+            enTrans: "團隊合作與為朋友加油，讓每場比賽都更有趣！",
+            words: ["athlete (n.) 運動員", "teamwork (n.) 團隊合作"]
+          }
+        ],
+        quiz: {
+          q1: "1. 【事實理解】根據第 3 則新聞與趣味小知識，海龜蛋在「比較溫暖」的沙灘孵化時，比較容易孵出哪種性別的寶寶？",
+          q1Opts: ["☐ A. 較多小女生", "☐ B. 較多小男生", "☐ C. 男女生數量完全一樣"],
+          q2: "2. 【雙語詞彙】在第 6 則新聞中，英文句子 'Sharing books means sharing happiness.' 裡的 Sharing 是什麼意思？",
+          q2Opts: ["☐ A. 購買", "☐ B. 分享", "☐ C. 修理"],
+          q3: "3. 【親子思辨 Think & Talk】如果你也能在教室或社區打造一個「免費共享角落」，你最想分享什麼東西？為什麼？",
+          answerKey: "🔑 家長參考答案（Parent's Answer Key）：Q1 答案為 A（溫暖的沙子會孵出較多小女生，涼爽的沙子則較多小男生）｜Q2 答案為 B（Share 為「分享」之意）｜Q3 為開放思考題，可引導孩子分享「這項物品能帶給別人什麼快樂」以及「共同使用時需要遵守什麼小約定」。",
+          q1En: "1. [Comprehension] Based on News #03 and Did You Know?, when sea turtle eggs hatch in warmer sand, what are most of the baby turtles?",
+          q1OptsEn: ["☐ A. Mostly girls", "☐ B. Mostly boys", "☐ C. Exactly half boys and half girls"],
+          q2En: "2. [Vocabulary] In News #06, what does the word 'share' mean in 'Sharing books means sharing happiness.'?",
+          q2OptsEn: ["☐ A. To buy something", "☐ B. To let others enjoy or use something with you", "☐ C. To fix something"],
+          q3En: "3. [Think & Talk] If you could build a 'Free Sharing Corner' in your classroom or neighborhood, what would you share and why?",
+          answerKeyEn: "🔑 Parent's Answer Key: Q1: A (Warm sand produces more girl turtles, while cool sand produces more boy turtles.) | Q2: B ('Share' means letting others enjoy or use something together.) | Q3: Open-ended discussion—ask your child what joy the item brings and what simple rules everyone should follow when sharing."
+        },
+        relatedPrintable: {
+          title: "可愛獅子著色圖（A4 免費列印版）",
+          desc: "搭配第 01 期動物園新寶寶新聞！把這張北歐風格的獅子著色畫印出來，幫獅子設計彩色鬃毛吧。",
+          img: "images/animal-lion.png",
+          pdf: "downloads/animal-lion.pdf"
+        }
+      }
+    ];
 
-    let currentMain = 'all';
-    let currentSub = 'all';
+    /* =====================================================================
+       【每週更新資料區 2：主題學習單 & 著色圖 PRINTABLE_ITEMS】
+       ===================================================================== */
+    const PRINTABLE_ITEMS = [
+      {
+        id: "animal-lion",
+        category: "coloring",
+        sub: "animals",
+        popular: true,
+        title: "可愛獅子著色圖",
+        desc: "北歐簡約粗線條設計，適合幼兒與低年級彩繪。(A4 PDF)",
+        img: "images/animal-lion.png",
+        pdf: "downloads/animal-lion.pdf",
+        relatedIssueId: "issue-01",
+        relatedNewsLabel: "📖 延伸閱讀：第 01 期動物園新寶寶小新聞 →"
+      },
+      {
+        id: "lion-worksheet",
+        category: "worksheets",
+        sub: "animals",
+        popular: true,
+        title: "動物觀察與雙語閱讀學習單",
+        desc: "搭配第 01 期週報，包含單字配對與動物棲地繪畫區。(A4 PDF)",
+        img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><rect x='28' y='32' width='244' height='336' rx='10' fill='none' stroke='%236B8E78' stroke-width='3'/><text x='150' y='74' font-family='sans-serif' font-size='14' font-weight='bold' text-anchor='middle' fill='%232F3632'>ANIMAL WORKSHEET</text><text x='150' y='94' font-family='sans-serif' font-size='11' text-anchor='middle' fill='%23646E68'>雙語閱讀與棲地繪畫學習單</text><line x1='52' y1='120' x2='248' y2='120' stroke='%23ccc' stroke-width='2'/><line x1='52' y1='152' x2='248' y2='152' stroke='%23ccc' stroke-width='2'/><rect x='52' y='185' width='196' height='145' rx='8' fill='%23FAF8F5' stroke='%23D98A6C' stroke-width='2' stroke-dasharray='5,5'/><text x='150' y='262' font-family='sans-serif' font-size='12' text-anchor='middle' fill='%23646E68'>畫出你最喜歡的動物寶寶</text></svg>",
+        pdf: "downloads/animal-lion.pdf",
+        relatedIssueId: "issue-01",
+        relatedNewsLabel: "📖 搭配閱讀：第 01 期兒童週報 →"
+      },
+      {
+        id: "potted-monstera",
+        category: "coloring",
+        sub: "plants",
+        popular: false,
+        title: "北歐微笑龜背芋著色圖",
+        desc: "簡潔舒壓的植物葉片線稿，適合親子靜心塗色。(A4 PDF)",
+        img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><polygon points='110,220 190,220 178,285 122,285' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><rect x='104' y='206' width='92' height='14' rx='5' fill='none' stroke='%23222' stroke-width='5'/><path d='M150 206 C150 160, 115 155, 110 125 C135 120, 150 150, 150 175' fill='none' stroke='%23222' stroke-width='5' stroke-linecap='round'/><path d='M150 190 C150 145, 185 140, 190 110 C165 105, 150 135, 150 165' fill='none' stroke='%23222' stroke-width='5' stroke-linecap='round'/><text x='150' y='330' font-family='sans-serif' font-size='14' text-anchor='middle' fill='%23666'>Plants: Potted Leaf</text></svg>",
+        pdf: "downloads/potted-monstera.pdf",
+        relatedIssueId: "",
+        relatedNewsLabel: ""
+      },
+      {
+        id: "christmas-tree",
+        category: "coloring",
+        sub: "christmas",
+        popular: false,
+        title: "溫馨小聖誕樹著色圖",
+        desc: "粗線條聖誕樹圖案，讓孩子自由裝飾專屬聖誕禮物。(A4 PDF)",
+        img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fff'/><polygon points='150,95 105,165 195,165' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><polygon points='150,140 92,225 208,225' fill='none' stroke='%23222' stroke-width='5' stroke-linejoin='round'/><rect x='136' y='225' width='28' height='35' fill='none' stroke='%23222' stroke-width='5'/><circle cx='150' cy='80' r='9' fill='none' stroke='%23222' stroke-width='4'/><text x='150' y='315' font-family='sans-serif' font-size='14' text-anchor='middle' fill='%23666'>Christmas: Cozy Tree</text></svg>",
+        pdf: "downloads/christmas-tree.pdf",
+        relatedIssueId: "",
+        relatedNewsLabel: ""
+      }
+    ];
 
-    function filterGallery() {
-      if (currentMain === 'all' || currentMain === 'coloring') {
-        subBar.classList.remove('hidden');
+    /* ================= 系統自動渲染邏輯 ================= */
+    let activeMainCat = "all";
+    let activeSubCat = "all";
+
+    function renderHomeIssues() {
+      const container = document.getElementById("issues-container");
+      container.innerHTML = WEEKLY_ISSUES.map(issue => `
+        <article class="issue-card" onclick="openIssue('${issue.id}')">
+          <div class="issue-card-top">
+            <span class="issue-badge">${issue.badge}</span>
+            <span class="issue-date">${issue.date}</span>
+          </div>
+          <div class="issue-card-body">
+            <h3>${issue.title}</h3>
+            <div class="mini-pills">${issue.tags.map(t => `<span>${t}</span>`).join("")}</div>
+            <p>${issue.summary}</p>
+          </div>
+          <div class="issue-card-foot">
+            <span>閱讀 8 則新聞 &amp; 列印 2 張 A4 學習單</span>
+            <span>進入閱讀 →</span>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderPrintables() {
+      const container = document.getElementById("printables-container");
+      const filtered = PRINTABLE_ITEMS.filter(item => {
+        const matchMain = (activeMainCat === "all") || (item.category === activeMainCat);
+        let matchSub = true;
+        if (activeSubCat === "popular") matchSub = item.popular;
+        else if (activeSubCat !== "all") matchSub = (item.sub === activeSubCat);
+        return matchMain && matchSub;
+      });
+
+      const subMap = { animals: "可愛動物", plants: "植物自然", christmas: "節慶聖誕" };
+
+      container.innerHTML = filtered.map(item => `
+        <article class="p-card">
+          <div class="p-thumb" onclick="openPreview('${item.id}')">
+            <div class="badge-stack">
+              ${item.popular ? '<span class="badge popular">⭐ 熱門</span>' : `<span class="badge ${item.category === 'worksheets' ? 'ws' : ''}">${item.category === 'worksheets' ? '主題學習單' : '著色圖'}</span>`}
+              <span class="badge sub">${subMap[item.sub] || item.sub}</span>
+            </div>
+            <img src="${item.img}" alt="${item.title}">
+          </div>
+          <div class="p-body">
+            <div>
+              <h3 class="p-title">${item.title}</h3>
+              <p class="p-desc">${item.desc}</p>
+              ${item.relatedIssueId ? `<a class="cross-news-trigger" onclick="openIssue('${item.relatedIssueId}')">${item.relatedNewsLabel}</a>` : ""}
+            </div>
+            <div class="btn-stack">
+              <button type="button" class="btn-print-pdf" onclick="printPDF('${item.pdf}')">🖨️ Print PDF（直接列印）</button>
+              <a href="${item.pdf}" download class="btn-download-pdf">免費下載 A4 PDF</a>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderStoryCards(stories) {
+      return stories.map(s => `
+        <article class="news-card-box">
+          <div>
+            <div class="nc-top">
+              <span class="nc-cat">${s.cat}</span>
+              <span class="nc-num">${s.num}</span>
+            </div>
+            <div class="nc-visual">
+              <img src="${s.img}" alt="${s.zhTitle}" loading="lazy">
+            </div>
+            <h3 class="zh-part">${s.zhTitle}</h3>
+            <div class="nc-en-title en-part">${s.enTitle}</div>
+            <p class="nc-zh-body zh-part">${s.zhBody}</p>
+            <p class="nc-en-full-body">${s.enBody}</p>
+          </div>
+          <div>
+            <div class="nc-en-box bilingual-en-box">
+              <strong>${s.enSentence}</strong>
+              <span class="zh-part">${s.enTrans}</span>
+            </div>
+            <div class="nc-words en-part">
+              ${s.words.map(w => `<span class="w-chip">${w}</span>`).join("")}
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function openIssue(issueId) {
+      const issue = WEEKLY_ISSUES.find(i => i.id === issueId) || WEEKLY_ISSUES[0];
+      const area = document.getElementById("issue-render-area");
+
+      area.innerHTML = `
+        <div class="a4-sheet">
+          <div class="sheet-masthead">
+            <div class="masthead-left">
+              <div class="sub-brand">KIDS BILINGUAL NEWS &amp; PRINTABLE · LILY &amp; MU WONDER STUDIO</div>
+              <h2>兒童新聞雙語週報</h2>
+            </div>
+            <div class="masthead-right">
+              <div>${issue.badge}｜${issue.date}</div>
+            </div>
+          </div>
+          <div class="bento-grid-4">${renderStoryCards(issue.page1Stories)}</div>
+          <div class="dyk-banner">
+            <div style="font-size:28px; line-height:1;">💡</div>
+            <div>
+              <h4>${issue.didYouKnow.title}</h4>
+              <p class="zh-part">${issue.didYouKnow.zh}</p>
+              <div class="dyk-en en-part">${issue.didYouKnow.en}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="a4-sheet">
+          <div class="page2-bar">
+            <span>兒童新聞雙語週報｜${issue.badge}（${issue.date}）</span>
+            <span>姓名：____________</span>
+          </div>
+          <div class="bento-grid-4">${renderStoryCards(issue.page2Stories)}</div>
+
+          <div class="quiz-card">
+            <div class="zh-part">
+              <h4>✍️ Reading Check 閱讀思考測驗（共 3 題）</h4>
+              <div class="q-row">
+                <p>${issue.quiz.q1}</p>
+                <div class="q-opts">${issue.quiz.q1Opts.map(o => `<span>${o}</span>`).join("")}</div>
+              </div>
+              <div class="q-row">
+                <p>${issue.quiz.q2}</p>
+                <div class="q-opts">${issue.quiz.q2Opts.map(o => `<span>${o}</span>`).join("")}</div>
+              </div>
+              <div class="q-row" style="margin-bottom:0;">
+                <p>${issue.quiz.q3}</p>
+                <div class="write-line"></div>
+                <div class="write-line"></div>
+              </div>
+            </div>
+
+            <div class="en-only-mode">
+              <h4>✍️ Reading Check (3 Questions)</h4>
+              <div class="q-row">
+                <p>${issue.quiz.q1En}</p>
+                <div class="q-opts">${issue.quiz.q1OptsEn.map(o => `<span>${o}</span>`).join("")}</div>
+              </div>
+              <div class="q-row">
+                <p>${issue.quiz.q2En}</p>
+                <div class="q-opts">${issue.quiz.q2OptsEn.map(o => `<span>${o}</span>`).join("")}</div>
+              </div>
+              <div class="q-row" style="margin-bottom:0;">
+                <p>${issue.quiz.q3En}</p>
+                <div class="write-line"></div>
+                <div class="write-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="upside-down-answers">
+            <strong class="zh-part">${issue.quiz.answerKey}</strong>
+            <strong class="en-only-mode">${issue.quiz.answerKeyEn}</strong>
+          </div>
+        </div>
+
+        <div class="extended-craft-box">
+          <img src="${issue.relatedPrintable.img}" alt="${issue.relatedPrintable.title}">
+          <div class="extended-craft-info">
+            <div class="tag">🎨 延伸手作／著色時間 · EXTENDED ACTIVITY</div>
+            <h3>${issue.relatedPrintable.title}</h3>
+            <p>${issue.relatedPrintable.desc}</p>
+            <div class="craft-btns">
+              <button type="button" class="btn-print-pdf" onclick="printPDF('${issue.relatedPrintable.pdf}')">🖨️ Print PDF（直接列印）</button>
+              <a href="${issue.relatedPrintable.pdf}" download class="btn-download-pdf">免費下載 A4 PDF</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      switchView("issue");
+    }
+
+    function switchView(viewName) {
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelectorAll(".nav-pill").forEach(b => b.classList.remove("active"));
+      document.getElementById("view-" + viewName).classList.add("active");
+      const navBtn = document.getElementById("nav-" + viewName);
+      if (navBtn) navBtn.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function jumpToPrintables(cat) {
+      switchView("home");
+      const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
+      if (btn) setMainCat(cat, btn);
+      setTimeout(() => {
+        document.getElementById("printables-anchor").scrollIntoView({ behavior: "smooth" });
+      }, 60);
+    }
+
+    function setMainCat(cat, btnEl) {
+      activeMainCat = cat;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+      renderPrintables();
+    }
+
+    function setSubCat(sub, btnEl) {
+      activeSubCat = sub;
+      document.querySelectorAll(".sub-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+      renderPrintables();
+    }
+
+    function setLangMode(mode, btnEl) {
+      document.body.classList.remove("lang-zh", "lang-en");
+      if (mode === "zh") document.body.classList.add("lang-zh");
+      if (mode === "en") document.body.classList.add("lang-en");
+      document.querySelectorAll(".lang-toggle").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+    }
+
+    function openPreview(itemId) {
+      const item = PRINTABLE_ITEMS.find(i => i.id === itemId);
+      if (!item) return;
+      document.getElementById("modalImg").src = item.img;
+      document.getElementById("modalTitle").textContent = item.title;
+      document.getElementById("modalDownloadBtn").href = item.pdf;
+      document.getElementById("modalPrintBtn").onclick = () => printPDF(item.pdf);
+
+      const newsBox = document.getElementById("modalNewsBox");
+      const newsLink = document.getElementById("modalNewsLink");
+      if (item.relatedIssueId) {
+        newsLink.textContent = item.relatedNewsLabel;
+        newsLink.onclick = () => {
+          document.getElementById("previewModal").classList.remove("open");
+          openIssue(item.relatedIssueId);
+        };
+        newsBox.style.display = "block";
       } else {
-        subBar.classList.add('hidden');
+        newsBox.style.display = "none";
       }
 
-      cards.forEach(card => {
-        const cardCat = card.dataset.category;
-        const cardSub = card.dataset.sub;
-        const isPopular = card.dataset.popular === 'true';
-
-        const matchMain = (currentMain === 'all') || (cardCat === currentMain);
-        let matchSub = false;
-
-        if (currentSub === 'all') {
-          matchSub = true;
-        } else if (currentSub === 'popular') {
-          matchSub = isPopular;
-        } else {
-          matchSub = (cardSub === currentSub);
-        }
-
-        if (matchMain && matchSub) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      document.getElementById("previewModal").classList.add("open");
     }
 
-    mainBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        mainBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentMain = btn.dataset.filter;
-
-        currentSub = 'all';
-        subBtns.forEach(sb => sb.classList.remove('active'));
-        subBtns[0].classList.add('active');
-
-        filterGallery();
-      });
-    });
-
-    subBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        subBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentSub = btn.dataset.sub;
-
-        if (currentSub !== 'all' && currentMain === 'all') {
-          currentMain = 'coloring';
-          mainBtns.forEach(mb => {
-            mb.classList.toggle('active', mb.dataset.filter === 'coloring');
-          });
-        }
-
-        filterGallery();
-      });
-    });
-
-    function openPreview(thumbEl, title, pdfUrl) {
-      const clickedImg = thumbEl.querySelector('img').src;
-      document.getElementById('modalImg').src = clickedImg;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalDownload').href = pdfUrl;
-      document.getElementById('modalPrint').onclick = function() {
-        printPDF(pdfUrl);
-      };
-      document.getElementById('previewModal').classList.add('open');
-    }
-
-    function closePreview(event, force = false) {
-      if (force || event.target.id === 'previewModal') {
-        document.getElementById('previewModal').classList.remove('open');
+    function closeModal(event, force = false) {
+      if (force || event.target.id === "previewModal") {
+        document.getElementById("previewModal").classList.remove("open");
       }
     }
 
     function printPDF(pdfUrl) {
-      // 偵測是否為手機或平板裝置（iOS / Android）
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       if (isMobile) {
-        window.open(pdfUrl, '_blank');
+        window.open(pdfUrl, "_blank");
         return;
       }
-
-      // 桌面版（Mac / Windows）使用隱藏視窗直接叫出系統列印對話框
-      let printFrame = document.getElementById('hidden-print-frame');
-      if (!printFrame) {
-        printFrame = document.createElement('iframe');
-        printFrame.id = 'hidden-print-frame';
-        printFrame.style.position = 'fixed';
-        printFrame.style.right = '0';
-        printFrame.style.bottom = '0';
-        printFrame.style.width = '0';
-        printFrame.style.height = '0';
-        printFrame.style.border = '0';
-        document.body.appendChild(printFrame);
+      let frame = document.getElementById("hidden-print-frame");
+      if (!frame) {
+        frame = document.createElement("iframe");
+        frame.id = "hidden-print-frame";
+        frame.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0;";
+        document.body.appendChild(frame);
       }
-
-      printFrame.onload = function() {
+      frame.onload = function() {
         try {
-          printFrame.contentWindow.focus();
-          printFrame.contentWindow.print();
+          frame.contentWindow.focus();
+          frame.contentWindow.print();
         } catch (e) {
-          window.open(pdfUrl, '_blank');
+          window.open(pdfUrl, "_blank");
         }
       };
-
-      printFrame.src = pdfUrl;
+      frame.src = pdfUrl;
     }
 
-    function recordClick(itemId) {
-      if (typeof gtag === 'function') {
-        gtag('event', 'printable_download', { item_id: itemId });
-      }
-    }
+    renderHomeIssues();
+    renderPrintables();
   </script>
-
 </body>
 </html>
